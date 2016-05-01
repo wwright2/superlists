@@ -20,7 +20,10 @@ class HomePageTest(TestCase):
         response = home_page(request)
         #print (repr(response.content))
         
-        expected_html = render_to_string('home.html')
+        expected_html = render_to_string(
+            'home.html',
+            {'new_itme_text': 'A new list item '}
+        )
         self.assertEqual(response.content.decode(), expected_html)
         
 
